@@ -20,10 +20,6 @@ RUN apk --no-cache add shadow && \
     groupmod -o -g ${PGID} www-data && \
     usermod -o -u ${PUID} -g www-data www-data
 
-# Source code
-COPY ./ /var/www
-WORKDIR /var/www
-
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 #RUN composer install --no-interaction
